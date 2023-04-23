@@ -33,6 +33,7 @@ function NewGame() {
       const xmlDoc = await parseStringPromise(xmlStr);
       // assign properties to be stored in DB: thumbnail, player count and playtime
       let newGame = {};
+      newGame.id = gameId;
       newGame.name = xmlDoc.items.item[0].name[0].$.value;
       newGame.thumbnailUrl = xmlDoc.items.item[0].thumbnail[0];
       newGame.minPlayers = xmlDoc.items.item[0].minplayers[0].$.value;
@@ -48,19 +49,41 @@ function NewGame() {
     }
   }
 
+  // COMPONENT: Display game from id and submit to DB button. Takes newGameDisplay as a prop.
+  function AddGame({ newGameDisplay }) {
+    console.log(newGameDisplay);
+    if (newGameDisplay) {
+      return (
+        <div>
+          <p>
+            ID {newGameDisplay.id} is for the game: {newGameDisplay.name}
+          </p>
+        </div>
+      );
+    } else {
+      return (
+        <div>To add a new game: Please search for one by BGG ID above.</div>
+      );
+    }
+
+    // Remember to set newGameDisplay to ("")/undefined/falsy if/after submit button clicked.
+  }
+
   return (
     <>
       <input onChange={(e) => setNewGameInput(e.target.value)}></input>
       <button onClick={() => fetchBGGData(newGameInput)}>test</button>
       <div>
-        <img
+        <AddGame newGameDisplay={newGameDisplay} />
+
+        {/* <img
           src={newGameDisplay.thumbnailUrl}
           height={100}
           width={100}
           alt="BGG thumbnail"
           //   display= avoids issues with errors before user has searched for a game
           style={{ display: newGameDisplay.thumbnailUrl ? "block" : "none" }}
-        />
+        /> */}
       </div>
     </>
   );
