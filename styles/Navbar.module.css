@@ -1,0 +1,30 @@
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(28, 28, 28);
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white; /* this doesn't work(?) */
+}
+
+.links a {
+    margin-left: 80px;
+    color: white;
+    text-decoration: none; /* removes underline */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+
+.links a:hover {
+    color: burlywood;
+}
