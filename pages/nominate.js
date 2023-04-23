@@ -49,7 +49,7 @@ function NewGame() {
     }
   }
 
-  // COMPONENT: Display game from id and submit to DB button. Takes newGameDisplay as a prop.
+  // (internal) COMPONENT: Display game from id and submit to DB button. Takes newGameDisplay as a prop.
   function AddGame({ newGameDisplay }) {
     console.log(newGameDisplay);
     if (newGameDisplay) {
@@ -58,6 +58,7 @@ function NewGame() {
           <p>
             ID {newGameDisplay.id} is for the game: {newGameDisplay.name}
           </p>
+          <p>Please enter the </p>
         </div>
       );
     } else {

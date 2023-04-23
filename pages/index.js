@@ -1,6 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "@/styles/Home.module.css";
+// Import fetch JWT funcationality
+import fetchJWT from "@/components/utilities/fetchJWT";
 
 // ********************************
 // Welcome page
@@ -18,6 +19,14 @@ export default function Home() {
       <h1 className={styles.homePage}>
         Welcome to Glasgow Southside Board Gamers!
       </h1>
+
+      <button
+        onClick={() => {
+          fetchJWT();
+        }}
+      >
+        testFetch
+      </button>
     </>
   );
 }

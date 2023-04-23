@@ -51,8 +51,6 @@ export const getStaticProps = async () => {
     const playerCount = xmlDoc.items.item[0].maxplayers[0].$.value;
     const playTime = xmlDoc.items.item[0].maxplaytime[0].$.value;
 
-    // NB: Return more items as props here? Ex: maxPlayers, playTime,
-
     // ****** NOTE: ID will likely be key for other parts (keys, IDs for DB/CRUD etc) ***********************
 
     // Note the use of the '$' here to 'access the attributes of an element, in this case: <item type="boardgame" id="13">
