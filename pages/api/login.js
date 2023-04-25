@@ -1,5 +1,5 @@
 // Handle POST login requests - returns JWT token and saves it to localStorage.
-const usersModel = require("../server/models/userSchema");
+const usersModel = require("../../server/models/userSchema");
 const jwt = require("jsonwebtoken");
 
 // import DB connection
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
               // Save admin details - NOTE: Add other priveliges (host/GM) here if wanted
               isAdmin: userInfo.isAdmin,
             },
-            "secretKey" // need a comma here?
+            "secretKey" // *** this is key ***
           );
           // If password is correct: respond with message and token
           res.send({ message: "You have logged in", token: jwtToken });
