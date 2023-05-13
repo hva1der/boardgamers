@@ -9,7 +9,7 @@ import fetchJWT from "@/components/utilities/fetchJWT";
 // Visible regardless of whether user is logged in.
 // ********************************
 
-export default function Home() {
+export default function Home({ token }) {
   return (
     <>
       <Head>
@@ -19,6 +19,7 @@ export default function Home() {
       <h1 className={styles.homePage}>
         Welcome to Glasgow Southside Board Gamers!
       </h1>
+      <h2>Token = {token}</h2>
 
       <button
         onClick={() => {
@@ -27,6 +28,12 @@ export default function Home() {
       >
         testFetch
       </button>
+
+      {token ? <div>hello</div> : <div>bye</div>}
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  return { props: { token: context.req.cookies.token || "" } };
 }

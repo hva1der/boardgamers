@@ -1,9 +1,14 @@
 // Handle POST login requests - returns JWT token and saves it to localStorage.
 const usersModel = require("../../server/models/userSchema");
 const jwt = require("jsonwebtoken");
+// import and use Jose:
+const jose = require("jose");
 
 // import DB connection
 const connectDB = require("../../db");
+
+// take key from process.env and set it as a uint8Array using TextEncoder() **** For testing using string as key, set to use process.env NB NB****
+const secretKey = new TextEncoder().encode("€"); // with "€" the uint8Array should be [226, 130, 172]
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -25,8 +30,10 @@ export default async function handler(req, res) {
               // Save admin details - NOTE: Add other priveliges (host/GM) here if wanted
               isAdmin: userInfo.isAdmin,
             },
-            "secretKey" // *** this is key ***
+            secretKey // *** this is key ***
           );
+          // for testing
+          console.log(jwtToken);
           // If password is correct: respond with message and token
           res.send({ message: "You have logged in", token: jwtToken });
         } else {

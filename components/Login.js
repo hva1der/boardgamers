@@ -12,7 +12,7 @@
 
 // // check JWT token function - is user logged in? (check if their username is in the db)
 // function checkJWT() {
-//   // get secret key (JWT_SECRET_KEY="secretKey")
+//   // get secret key (JWT_SECRET_KEY="Boarders)
 //   const secretKey = process.env.JWT_SECRET_KEY;
 //   // check if there is a jwt in localstorage
 //   if (!localStorage.getItem("jwt")) {
