@@ -3,10 +3,9 @@ import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 const jose = require("jose");
 
-// set secretKey to uint8Array
-const secretKey = new TextEncoder().encode("€");
+// set secretKey to uint8Array (required by jose)
+const secretKey = new TextEncoder().encode(process.env.JWT_SECRET_KEY);
 
-// This function can be marked `async` if using `await` inside
 export async function middleware(request, context) {
   try {
     // get jwt token from cookies
@@ -17,14 +16,13 @@ export async function middleware(request, context) {
     }
     // decode jwt token from cookie
     const decoded = await jose.jwtVerify(cookie.value, secretKey);
-    // if decoded token is invalid: redirect
+    // if decoded token is valid: allow user to proceed to members' area pages
     if (decoded) {
-      console.log(decoded);
       return;
     }
   } catch (err) {
     console.error(err);
-    // if error: redirect
+    // if error: redirect to home
     return NextResponse.redirect(new URL("/", request.url));
   }
 }

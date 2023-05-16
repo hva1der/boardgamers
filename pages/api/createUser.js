@@ -4,6 +4,7 @@ const usersModel = require("../../server/models/userSchema");
 // import DB connection - I know I can shorten the paths (ex just: "db" below) but I prefer to be reminded where the files are
 const connectDB = require("../../db");
 
+// takes a request with body {username: x, password: y}
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {

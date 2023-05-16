@@ -1,14 +1,14 @@
-// Handle POST login requests - returns JWT token and saves it to localStorage.
+// ***API*** /api/login path: handles POST login requests - returns JWT token
 const usersModel = require("../../server/models/userSchema");
 const jwt = require("jsonwebtoken");
-// import and use Jose:
+// import and use Jose - NB wasn't required so have not implemented - delete import unless this changes
 const jose = require("jose");
 
 // import DB connection
 const connectDB = require("../../db");
 
-// take key from process.env and set it as a uint8Array using TextEncoder() **** For testing using string as key, set to use process.env NB NB****
-const secretKey = new TextEncoder().encode("€"); // with "€" the uint8Array should be [226, 130, 172]
+// take key from process.env (.env.local) and set it as a uint8Array using TextEncoder() (required by Jose)
+const secretKey = new TextEncoder().encode(process.env.JWT_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -24,16 +24,15 @@ export default async function handler(req, res) {
       if (userInfo) {
         // Check if password is correct
         if (req.body.password === userInfo.password) {
+          // Convert the signing to Jose? Seems to work as intended without
           let jwtToken = jwt.sign(
             {
               username: userInfo.username,
               // Save admin details - NOTE: Add other priveliges (host/GM) here if wanted
               isAdmin: userInfo.isAdmin,
             },
-            secretKey // *** this is key ***
+            secretKey // *** this is the key ***
           );
-          // for testing
-          console.log(jwtToken);
           // If password is correct: respond with message and token
           res.send({ message: "You have logged in", token: jwtToken });
         } else {

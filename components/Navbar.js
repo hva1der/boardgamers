@@ -7,9 +7,9 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.links}>
         <Link href="/">Home</Link>
-        <Link href="/thisWeek">This week's games</Link>
+        <Link href="/membersArea/thisWeek">This week's games</Link>
         <Link href="/membersArea/signUp">Sign Up</Link>
-        <Link href="/nominate">Nominate Games</Link>
+        <Link href="/membersArea/nominate">Nominate Games</Link>
         <Link href="/faq">FAQ</Link>
         <Link href="/location">Where to find us</Link>
       </div>
