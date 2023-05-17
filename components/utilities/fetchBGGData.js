@@ -18,10 +18,10 @@ export default async function fetchBGGData(gameId, setNewGameDisplay) {
     let newGame = {};
     newGame.gameId = gameId;
     newGame.gameName = xmlDoc.items.item[0].name[0].$.value;
-    newGame.minPlayers = xmlDoc.items.item[0].minplayers[0].$.value;
-    newGame.maxPlayers = xmlDoc.items.item[0].maxplayers[0].$.value;
-    newGame.minPlayTime = xmlDoc.items.item[0].minplaytime[0].$.value;
-    newGame.maxPlayTime = xmlDoc.items.item[0].maxplaytime[0].$.value;
+    newGame.minPlayerCount = xmlDoc.items.item[0].minplayers[0].$.value;
+    newGame.maxPlayerCount = xmlDoc.items.item[0].maxplayers[0].$.value;
+    newGame.minLength = xmlDoc.items.item[0].minplaytime[0].$.value;
+    newGame.maxLength = xmlDoc.items.item[0].maxplaytime[0].$.value;
     newGame.gameThumbnailUrl = xmlDoc.items.item[0].thumbnail[0];
     // Set to game display to show on page before submitting to db
     setNewGameDisplay(newGame);

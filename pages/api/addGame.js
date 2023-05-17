@@ -11,7 +11,8 @@ export default async function handler(req, res) {
       // connect to DB
       await connectDB();
       // get game info from req.body
-      const newGame = req.body;
+      const newGame = req.body.newGameDisplay;
+      console.log(newGame);
       // check if game is already present in DB
       const checkDB = await gamesModel.findOne({ gameId: newGame.gameId }); // remember it has to be saved as req.body.gameId
       if (checkDB) {
