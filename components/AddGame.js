@@ -14,7 +14,6 @@ export default function AddGame({
 }) {
   // User confirms if game ID is for the correct game and clicks button to add it to DB (and displayed at list below)
   if (newGameDisplay) {
-    console.log(newGameDisplay);
     return (
       <div>
         <p>
@@ -35,6 +34,7 @@ export default function AddGame({
           To add this game:{" "}
           <button
             onClick={() => {
+              // add an if statement to check if this game is already in state?
               setOurGamesState([
                 // Spread Operator (...) to include previous games in array
                 ...ourGamesState,

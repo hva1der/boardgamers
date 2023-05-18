@@ -33,6 +33,11 @@ const gameSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  nominated: {
+    type: Boolean,
+    requried: true,
+    default: false,
+  },
 });
 
 // *not working - see below

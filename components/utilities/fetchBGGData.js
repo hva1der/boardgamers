@@ -23,9 +23,10 @@ export default async function fetchBGGData(gameId, setNewGameDisplay) {
     newGame.minLength = xmlDoc.items.item[0].minplaytime[0].$.value;
     newGame.maxLength = xmlDoc.items.item[0].maxplaytime[0].$.value;
     newGame.gameThumbnailUrl = xmlDoc.items.item[0].thumbnail[0];
+    // set nominated vaule to default false
+    newGame.nominated = false;
     // Set to game display to show on page before submitting to db
     setNewGameDisplay(newGame);
-    console.log(newGame.gameThumbnailUrl);
   } catch (error) {
     console.error(error);
     alert("Something went wrong, please check if the game ID is correct");
