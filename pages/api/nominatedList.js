@@ -1,5 +1,5 @@
-// Handler for GET requests to list games from DB collection 'games' (contains all our games) on Nominate Games page.
-const gamesModel = require("../../server/models/gameSchema");
+// Handler for GET requests to list games from DB collection 'nominatedgames' (contains games nominated to be played thisWeek) on allocate Games page.
+const nominatedModel = require("../../server/models/nominatedSchema");
 // import DB connection
 const connectDB = require("../../db");
 
@@ -8,9 +8,9 @@ export default async function handler(req, res) {
     try {
       // connect to DB
       await connectDB();
-      // get list of games from DB
-      const allGames = await gamesModel.find();
-      // return array of all games in DB
+      // get list of all games from DB collection
+      const allGames = await nominatedModel.find();
+      // return array of all games in collection
       res.send({ allGames });
 
       // handle errors

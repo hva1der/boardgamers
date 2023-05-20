@@ -1,3 +1,11 @@
+//
+//
+//
+// NB: NO LONGER IN USE - DELETE UNLESS THIS CHANGES
+//
+//
+//
+
 import fetch from "isomorphic-unfetch";
 // The API uses XML rather than JSON, so I had to take some extra steps
 import { parseStringPromise } from "xml2js"; // ref: https://www.npmjs.com/package/xml2js

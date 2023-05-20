@@ -1,12 +1,13 @@
-// PUT fetch request to /api/nominateGame to set nominated property for game in DB to true. Used in C:OurGamesDisplay
-export default async function nominateToDB(gameId) {
+// POST fetch request to /api/nominateGame to add game from normal 'games' collection to 'nominated'
+// collection. Used in C:OurGamesDisplay
+export default async function nominateToDB(nominatedGame) {
   try {
     const res = await fetch("http://localhost:3000/api/nominateGame", {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ gameId }),
+      body: JSON.stringify({ nominatedGame }),
     });
     const result = await res.json();
     // *** Change this to a better message/confirmation for users ***

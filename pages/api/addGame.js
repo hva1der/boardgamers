@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       } else {
         // create new DB entry with game info in same format as in req.body
         await gamesModel.create(newGame);
-        // NOTE: Maybe add a check to see if the game has actuall been added - just repeat the checkDB?
+        // NOTE: Maybe add a check to see if the game has actually been added - just repeat the checkDB?
         res.send({
           message: `${newGame.gameName} has been added to Our Games.`,
         });

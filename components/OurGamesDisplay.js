@@ -11,7 +11,8 @@ export default function OurGamesDisplay({ ourGames }) {
   const gamesList = ourGames.map((game) => {
     return (
       <li key={game.gameId}>
-        <button onClick={() => nominateToDB(game.gameId)}>Nominate</button>
+        {/* Clicking Nominate btn takes all game info and send it to 'nominated' DB collection */}
+        <button onClick={() => nominateToDB(game)}>Nominate</button>
         <b>{game.gameName}</b>
       </li>
     );

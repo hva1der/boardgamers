@@ -2,6 +2,7 @@
 // *** NB NOTE NB: This shares name with COMPONENT FetchBGGData - change one of them?? ***
 
 // The API uses XML rather than JSON, so I had to take some extra steps - *** NB: Add to README to install xml2js? ***
+// See bottom of page for further explanation.
 import { parseStringPromise } from "xml2js"; // ref: https://www.npmjs.com/package/xml2js
 
 // Function: Fetch game info from -BGG XML API- and store in state 'newGameDisplay'
@@ -23,8 +24,7 @@ export default async function fetchBGGData(gameId, setNewGameDisplay) {
     newGame.minLength = xmlDoc.items.item[0].minplaytime[0].$.value;
     newGame.maxLength = xmlDoc.items.item[0].maxplaytime[0].$.value;
     newGame.gameThumbnailUrl = xmlDoc.items.item[0].thumbnail[0];
-    // set nominated vaule to default false
-    newGame.nominated = false;
+
     // Set to game display to show on page before submitting to db
     setNewGameDisplay(newGame);
   } catch (error) {
@@ -32,3 +32,20 @@ export default async function fetchBGGData(gameId, setNewGameDisplay) {
     alert("Something went wrong, please check if the game ID is correct");
   }
 }
+
+// parseStringPromise explained by Lars:
+
+// ParseStringPromise is a method provided by the xml2js library that allows you to convert an
+// XML string to a JavaScript object, just like the JSON.parse method converts a JSON string to a JavaScript object.
+
+// In other words, just like you can use JSON.parse to parse a JSON string, you
+// can use parseStringPromise to parse an XML string. The resulting JavaScript object can then be accessed like any
+// other JavaScript object, allowing you to extract the data you need from the XML.
+
+// Here's an example of how you can use parseStringPromise to parse an XML string:
+
+// const xmlString = '<person><name>John</name><age>30</age></person>';
+// const parsedObject = await parseStringPromise(xmlString);
+// console.log(parsedObject); // { person: { name: ['John'], age: ['30'] } }
+// Note that the xml2js library also provides a parseString method that is not a
+// promise-based function, but uses a callback function instead.
