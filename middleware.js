@@ -16,6 +16,15 @@ export async function middleware(request, context) {
     }
     // decode jwt token from cookie
     const decoded = await jose.jwtVerify(cookie.value, secretKey);
+    // store isAdmin property
+    const isAdmin = decoded.payload.isAdmin;
+
+    // regulate adminArea access - checks path to admin area and isAdmin (rejects if false) property
+    if (request.nextUrl.pathname.startsWith("/membersArea/admin") && isAdmin) {
+      // request.nextUrl.pathname returns the path being accessed - ex: /membersArea/admin
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+
     // if decoded token is valid: allow user to proceed to members' area pages
     if (decoded) {
       return;

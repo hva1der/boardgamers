@@ -1,4 +1,4 @@
-// PUT fetch request to /api/nominateGame to add new game to DB. Used in C:OurGamesDisplay
+// PUT fetch request to /api/nominateGame to set nominated property for game in DB to true. Used in C:OurGamesDisplay
 export default async function nominateToDB(gameId) {
   try {
     const res = await fetch("http://localhost:3000/api/nominateGame", {
