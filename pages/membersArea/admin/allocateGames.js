@@ -2,29 +2,26 @@
 // Admin/GM section to allocate players to games to be displayed on thisWeek page
 // Access to pages in /admin/path is restricted - see: middleware.js
 
-// PSEUDO
-// So, what do we need?
-// - Lists all games with sublists with inputfields for names
-//  -> Assume/pretend the existence of our current Excel signup sheet
-//  -> Now would also be the time to add YouTube links (imagined listed on background spreadsheet by hosts)
-//  - Saves this to DB
-//
-//
-//
-
-// Screw FORMS, go with simple inputfields - fixed at 5 players max
+// *** NOTE: State solution is poor and prone to user error. Change if there is time! ***
+// See bottom of page for possible start of alt solution
 
 import { useState } from "react";
+
+// import allocatePlayers (to DB) function
+import allocatePlayers from "@/components/utilities/allocatePlayers";
 
 // Lists all games with sublists with inputfields for names
 // takes some UTILITY functions to GET and PUT game info from/to DB
 export default function AllocateGames({ gamesToDisplay }) {
   // STATE for 5 players - known (potential) issue: if user marks players from different games before clicking submit
-  const [player1, setPlayer1] = useState("");
-  const [player2, setPlayer2] = useState("");
-  const [player3, setPlayer3] = useState("");
-  const [player4, setPlayer4] = useState("");
-  const [player5, setPlayer5] = useState("");
+  const [player1, setPlayer1] = useState();
+  const [player2, setPlayer2] = useState();
+  const [player3, setPlayer3] = useState();
+  const [player4, setPlayer4] = useState();
+  const [player5, setPlayer5] = useState();
+  let players = [player1, player2, player3, player4, player5];
+  // State for (optional) YouTube link/code
+  const [tutorial, setTutorial] = useState();
 
   const gamesList = gamesToDisplay.map((game) => {
     return (
@@ -50,8 +47,16 @@ export default function AllocateGames({ gamesToDisplay }) {
           placeholder="Player 5"
           onChange={(e) => setPlayer5(e.target.value)}
         ></input>
+        {/* (optional) YouTube tutorial link input */}
+        <input
+          placeholder="YouTube link"
+          onChange={(e) => setTutorial(e.target.value)}
+        ></input>
+
         {/* Submit button */}
-        <button onClick={() => console.log(player1)}>Submit</button>
+        <button onClick={() => allocatePlayers(game.gameId, players, tutorial)}>
+          Submit
+        </button>
       </li>
     );
   });

@@ -41,9 +41,9 @@ const nominatedSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  // record players allocated to game
+  // record players allocated to game in an array
   allocatedPlayers: {
-    type: String,
+    type: Array,
     required: false,
   },
 });
