@@ -36,7 +36,7 @@ const nominatedSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // Details for (optional) YouTube tutorial/how to play video
+  // Details for (optional) YouTube tutorial/how to play video - takes video ID as string
   tutorial: {
     type: String,
     required: false,

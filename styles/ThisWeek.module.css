@@ -1,0 +1,32 @@
+
+
+/* Game container - contains thumbnail, players and tutorial video */
+div.gameContainer {
+    margin: 0 10vw ;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    border: 1px solid;
+}
+
+/* Game thumbnail */
+div.gameContainer img {
+    height: 100%;
+    width: auto;
+    max-width: 30%;
+}
+
+/* list of players */
+div.gameContainer ul {
+    font-size: 3vh;
+    font-weight: 600;
+    list-style: none; /* hide bullets */
+}
+
+/* Tutorial video iframe */
+div.gameContainer iframe {
+    height: 100%;
+    max-width: 30%;
+    margin-left: auto;
+}
