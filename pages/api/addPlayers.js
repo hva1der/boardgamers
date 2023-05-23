@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       DBGame.allocatedPlayers = players;
       // add tutorial, if present
       if (tutorial) {
-        DBGame.tutorial = tutorial;
+        DBGame.tutorial = "https://www.youtube.com/embed/" + tutorial;
       }
       // save updated game to DB
       await DBGame.save();

@@ -47,9 +47,9 @@ export default function AllocateGames({ gamesToDisplay }) {
           placeholder="Player 5"
           onChange={(e) => setPlayer5(e.target.value)}
         ></input>
-        {/* (optional) YouTube tutorial link input */}
+        {/* (optional) YouTube tutorial ID code input */}
         <input
-          placeholder="YouTube link"
+          placeholder="YouTube ID Code"
           onChange={(e) => setTutorial(e.target.value)}
         ></input>
 

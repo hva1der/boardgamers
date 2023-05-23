@@ -1,4 +1,12 @@
+.thisWeekPage h1 {
+    text-align: center;
+    padding-bottom: 4vh;
+}
 
+/* hide bullets */
+.thisWeekPage ul {
+    list-style: none; 
+}
 
 /* Game container - contains thumbnail, players and tutorial video */
 div.gameContainer {
@@ -7,7 +15,7 @@ div.gameContainer {
     display: flex;
     align-items: center;
     margin-bottom: 50px;
-    border: 1px solid;
+    border: 2px solid;
 }
 
 /* Game thumbnail */
@@ -21,7 +29,6 @@ div.gameContainer img {
 div.gameContainer ul {
     font-size: 3vh;
     font-weight: 600;
-    list-style: none; /* hide bullets */
 }
 
 /* Tutorial video iframe */

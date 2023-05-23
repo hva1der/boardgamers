@@ -22,20 +22,17 @@ export default function ThisWeekFromDB({ gamesToDisplay }) {
       <li key={game.gameId}>
         {/* enclose each game in a container */}
         <div className={styles.gameContainer}>
+          {/* <h5>{game.gameName}</h5> */}
           <img src={game.gameThumbnailUrl} alt="This should be a 404 pic"></img>
           <ul>{players}</ul>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/2npDid-0Pc0"
-          ></iframe>
+          <iframe width="560" height="315" src={game.tutorial}></iframe>
         </div>
       </li>
     );
   });
 
   return (
-    <div>
+    <div className={styles.thisWeekPage}>
       <h1>This week we are playing:</h1>
       <ul>{gamesDisplay}</ul>
     </div>
