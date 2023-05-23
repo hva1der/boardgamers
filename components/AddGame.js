@@ -21,12 +21,14 @@ export default function AddGame({
         </p>
         <img
           src={newGameDisplay.gameThumbnailUrl}
-          height={100}
-          width={100}
+          height={150}
+          width={150}
           alt="BGG thumbnail"
-          //   display= avoids issues with errors before user has searched for a game
+          //   display style avoids issues with errors before user has searched for a game. Also set image to be centred
           style={{
             display: newGameDisplay.gameThumbnailUrl ? "block" : "none",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         />
         <p>

@@ -1,5 +1,6 @@
 import fetch from "isomorphic-unfetch";
 import { useState } from "react";
+import styles from "@/styles/Nominate.module.css";
 // COMPONENT IMPORTS
 import NewGame from "@/components/NewGame";
 import OurGamesDisplay from "@/components/OurGamesDisplay";
@@ -10,14 +11,16 @@ export default function Nominate({ ourGames }) {
   const [ourGamesState, setOurGamesState] = useState(ourGames);
 
   return (
-    <>
-      <h1>On this page members can view, add and nominate games.</h1>
+    <div className={styles.nominatePage}>
+      <h1 className={styles.nominateMainHeader}>
+        On this page members can view, add and nominate games
+      </h1>
       <NewGame
         ourGamesState={ourGamesState}
         setOurGamesState={setOurGamesState}
       />
       <OurGamesDisplay ourGames={ourGamesState} />
-    </>
+    </div>
   );
 }
 

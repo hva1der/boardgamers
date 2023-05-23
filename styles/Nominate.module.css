@@ -1,0 +1,33 @@
+/* main header */
+.nominateMainHeader {
+    text-align: center;
+}
+
+/* New game search */
+.nominateNewGame {
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+/* hide bullets */
+.nominatePage ul {
+    list-style: none;
+}
+
+/* Our games section */
+.nominateGamesDisplay {
+    border: 1px solid;
+}
+
+
+    /* list items in Our games */
+    .ourGamesList {
+        margin-bottom: 1vh;
+    }
+
+    /* Nominate game button */
+    .nominateButton {
+        margin-right: 1vw;
+        border-radius: 5px;
+    }

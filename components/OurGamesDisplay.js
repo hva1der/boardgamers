@@ -4,24 +4,30 @@
 
 // Imports
 import nominateToDB from "./utilities/nominateToDB";
+import styles from "@/styles/Nominate.module.css";
 
 // takes 2 props: 'ourGames' (games from DB) and 'newGame' which takes the - changed to only 1 prop(?)
 // *** TO DO: sorts array of games alphabetically and displays as a list ***
 export default function OurGamesDisplay({ ourGames }) {
   const gamesList = ourGames.map((game) => {
     return (
-      <li key={game.gameId}>
+      <li key={game.gameId} className={styles.ourGamesList}>
         {/* Clicking Nominate btn takes all game info and send it to 'nominated' DB collection */}
-        <button onClick={() => nominateToDB(game)}>Nominate</button>
+        <button
+          onClick={() => nominateToDB(game)}
+          className={styles.nominateButton}
+        >
+          Nominate
+        </button>
         <b>{game.gameName}</b>
       </li>
     );
   });
 
   return (
-    <>
+    <div className={styles.nominateGamesDisplay}>
       <h3>Our Games</h3>
       <ul>{gamesList}</ul>
-    </>
+    </div>
   );
 }

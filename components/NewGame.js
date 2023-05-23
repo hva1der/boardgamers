@@ -1,6 +1,7 @@
 import { useState } from "react";
 // imports
 import AddGame from "@/components/AddGame";
+import styles from "@/styles/Nominate.module.css";
 // Utility imports
 import fetchBGGData from "@/components/utilities/fetchBGGData";
 
@@ -14,7 +15,7 @@ export default function NewGame({ ourGamesState, setOurGamesState }) {
   const [newGameDisplay, setNewGameDisplay] = useState("");
 
   return (
-    <>
+    <div className={styles.nominateNewGame}>
       <input onChange={(e) => setNewGameInput(e.target.value)}></input>
       {/* onClick function takes user inputted BGG game id, finds the game and stores
         the game info in STATE: 'newGameDisplay' to be displayed by C:AddGame */}
@@ -32,6 +33,6 @@ export default function NewGame({ ourGamesState, setOurGamesState }) {
           setOurGamesState={setOurGamesState}
         />
       </div>
-    </>
+    </div>
   );
 }
