@@ -11,7 +11,7 @@ const Navbar = () => {
         <Link href="/membersArea/signUp">Sign Up</Link>
         <Link href="/membersArea/nominate">Nominate Games</Link>
         <Link href="/faq">FAQ</Link>
-        <Link href="/location">Where to find us</Link>
+        <Link href="/contactUs">Where to find us</Link>
       </div>
     </div>
   );

@@ -1,0 +1,17 @@
+/* global page styling  */
+.contactUsPage h1 {
+    text-align: center;
+}
+
+/* box containing map and address */
+.mapAddress {
+    text-align: center;
+    margin: auto 27vw;
+    padding: auto 3vw;
+}
+
+    /* Map image */
+    .mapAddress img {
+        width: fill;
+        height: 60vh;
+    }
