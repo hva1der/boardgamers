@@ -1,0 +1,22 @@
+/* page header */
+.faqPage h1 {
+    text-align: center;
+}
+    /* List styling */
+    .faqPage ul {
+        list-style: none;
+    }
+
+/* Container for main content */
+.faqContainer {
+    border: 2px solid;
+    margin: 5vh 10vw auto;
+}
+    /* styling for list of Q&A */
+    .faqContainer li {
+        border: 1px solid;
+        margin: auto 1vw 2vh;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-shadow: 10px 7px 5px lightgray;
+    }
