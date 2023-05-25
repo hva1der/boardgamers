@@ -1,7 +1,5 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-// Import fetch JWT funcationality
-import fetchJWT from "@/components/utilities/fetchJWT";
 
 // ********************************
 // Welcome page
@@ -15,25 +13,13 @@ export default function Home({ token }) {
       <Head>
         <title>GSBG Website</title>
       </Head>
+      {/* Main content */}
 
-      <h1 className={styles.homePage}>
-        Welcome to Glasgow Southside Board Gamers!
-      </h1>
-      <h2>Token = {token}</h2>
-
-      <button
-        onClick={() => {
-          fetchJWT();
-        }}
-      >
-        testFetch
-      </button>
-
-      {token ? <div>hello</div> : <div>bye</div>}
+      <div className={styles.homePage}>
+        <h1>Welcome to Glasgow Southside Board Gamers!</h1>
+        {/* Random boardgame related image - to be changed to image from group/venue */}
+        <img src="/bloodRage.jpg" alt="landing-page image"></img>
+      </div>
     </>
   );
-}
-
-export async function getServerSideProps(context) {
-  return { props: { token: context.req.cookies.token || "" } };
 }

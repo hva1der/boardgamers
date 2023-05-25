@@ -1,6 +1,14 @@
 /* global page styling  */
+.contactUsPage {
+    background-color: orange;
+    
+}
+
+/* Header */
 .contactUsPage h1 {
     text-align: center;
+    margin-top: 0px;
+    padding-top: 10px;
 }
 
 /* box containing map and address */
@@ -8,6 +16,7 @@
     text-align: center;
     margin: auto 27vw;
     padding: auto 3vw;
+    background-color: white;
 }
 
     /* Map image */
