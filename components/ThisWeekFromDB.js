@@ -9,7 +9,7 @@ import styles from "@/styles/ThisWeek.module.css";
 export default function ThisWeekFromDB({ gamesToDisplay }) {
   // map through games in DB to display info for each game
   const gamesDisplay = gamesToDisplay.map((game) => {
-    // map through each game's allocatedPlayers to get <li> of players
+    // map through each game's allocatedPlayers to get <li> list of players
     const players = game.allocatedPlayers.map((player, index) => {
       return (
         // Format of keys is ex: 'Scythe1'
@@ -17,18 +17,31 @@ export default function ThisWeekFromDB({ gamesToDisplay }) {
       );
     });
 
-    return (
-      // For each game display: Thumbnail, players and video
-      <li key={game.gameId}>
-        {/* enclose each game in a container */}
-        <div className={styles.gameContainer}>
-          {/* <h5>{game.gameName}</h5> */}
-          <img src={game.gameThumbnailUrl} alt="This should be a 404 pic"></img>
-          <ul>{players}</ul>
-          <iframe width="560" height="315" src={game.tutorial}></iframe>
-        </div>
-      </li>
-    );
+    // For each game, IF any players have been allocated, display: Thumbnail, players and video
+    if (game.allocatedPlayers.length > 0) {
+      return (
+        <li key={game.gameId}>
+          {/* enclose each game in a container */}
+          <div className={styles.gameContainer}>
+            <img
+              src={game.gameThumbnailUrl}
+              alt="This should be a 404 pic"
+            ></img>
+            <ul>{players}</ul>
+            {/* Display tutorial video IF any has been provided, otherwise encourage user to look up rules themselves */}
+            {game.tutorial ? (
+              <iframe width="560" height="315" src={game.tutorial}></iframe>
+            ) : (
+              <p>
+                The host hasn't provided a tutorial for this game, but if you're
+                unsure of the rules feel free to look one up on YouTube
+                yourself.
+              </p>
+            )}
+          </div>
+        </li>
+      );
+    }
   });
 
   return (

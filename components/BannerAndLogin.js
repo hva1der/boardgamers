@@ -21,7 +21,7 @@ export default function BannerAndLogin() {
     <div>
       {/* div container - responsive for banner image to 'fill' */}
       <div className={styles.banner}>
-        <Image src="/darth.jpg" alt="banner image" fill />
+        <Image src="/bannerMeeples.png" alt="banner image" fill />
       </div>
 
       {/* Login section */}

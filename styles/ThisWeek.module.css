@@ -31,6 +31,15 @@ div.gameContainer ul {
     font-weight: 600;
 }
 
+div.gameContainer p {
+    margin-left: auto;
+    margin-right: 10px;
+    max-width: 30%;
+    text-align: center;
+    border: 1px solid;
+    padding: 0 10px;
+}
+
 /* Tutorial video iframe */
 div.gameContainer iframe {
     height: 100%;

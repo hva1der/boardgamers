@@ -7,13 +7,15 @@
 
 import { useState } from "react";
 
-// import allocatePlayers (to DB) function
+// import allocatePlayers (to DB) function and Delete games from DB function
 import allocatePlayers from "@/components/utilities/allocatePlayers";
+import { deleteNomination } from "@/components/utilities/deleteNomination";
 
 // Lists all games with sublists with inputfields for names
 // takes some UTILITY functions to GET and PUT game info from/to DB
 export default function AllocateGames({ gamesToDisplay }) {
   // STATE for 5 players - known (potential) issue: if user marks players from different games before clicking submit
+  // Known issue: Need to input all names when updating players, as empty states will still be saved to DB and delete existing content
   const [player1, setPlayer1] = useState();
   const [player2, setPlayer2] = useState();
   const [player3, setPlayer3] = useState();
@@ -57,6 +59,8 @@ export default function AllocateGames({ gamesToDisplay }) {
         <button onClick={() => allocatePlayers(game.gameId, players, tutorial)}>
           Submit
         </button>
+        {/* DELETE button - for removing nominated games from DB */}
+        <button onClick={() => deleteNomination(game.gameId)}>Delete</button>
       </li>
     );
   });

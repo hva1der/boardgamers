@@ -21,6 +21,6 @@
 
     /* Map image */
     .mapAddress img {
-        width: fill;
+        width: stretch;
         height: 60vh;
     }

@@ -19,8 +19,8 @@ export async function middleware(request, context) {
     // store isAdmin property
     const isAdmin = decoded.payload.isAdmin;
 
-    // regulate adminArea access - checks path to admin area and isAdmin (rejects if false) property
-    if (request.nextUrl.pathname.startsWith("/membersArea/admin") && isAdmin) {
+    // regulate adminArea access - checks path to admin area and isAdmin (redirects to /home if NOT admin) property
+    if (request.nextUrl.pathname.startsWith("/membersArea/admin") && !isAdmin) {
       // request.nextUrl.pathname returns the path being accessed - ex: /membersArea/admin
       return NextResponse.redirect(new URL("/", request.url));
     }
