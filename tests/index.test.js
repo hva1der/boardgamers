@@ -31,17 +31,4 @@ it("renders homepage unchanged", () => {
 });
 
 // ***************************
-// 3) Backend unit test - move to separate file?
-// tests the admin access function used in middleware.js - amended to allow for testing, but see original below
-const pathName = "/membersArea/admin";
-const isAdmin = false;
-
-if (pathName.startsWith("/membersArea/admin") && !isAdmin) {
-}
-
-// ORIGINAL:
-// regulate adminArea access - checks path to admin area and isAdmin (redirects to /home if NOT admin) property
-// if (request.nextUrl.pathname.startsWith("/membersArea/admin") && !isAdmin) {
-//   // request.nextUrl.pathname returns the path being accessed - ex: /membersArea/admin
-//   return NextResponse.redirect(new URL("/", request.url));
-// }
+// // 3) Backend unit test - in separate file: tests/badPw.test.js
