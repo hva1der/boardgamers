@@ -1,18 +1,18 @@
-// Handler for POST fetch requests from C:OurGameDisplay to add game from the 'games' DB collection
-// to the 'nominated' collection.
+// Handler for POST fetch requests from C:OurGameDisplay (via utility: 'nominateToDB.js') to
+// add game from the 'games' DB collection to the 'nominated' collection.
 
 // import Mongoose schema and DB connection
 const nominatedModel = require("../../server/models/nominatedSchema");
 const connectDB = require("../../db");
 
-// req.body contains all game info from DB collection 'games'
+// req.body contains all game info from its entry in DB collection 'games'
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       // connect to DB
       await connectDB();
       // get game info from req.body
-      const nominatedGame = req.body.nominatedGame; // ensure this is corect .dot notation
+      const nominatedGame = req.body.nominatedGame;
       // check if game is already present in this collection
       const checkDB = await nominatedModel.findOne({
         gameId: nominatedGame.gameId,
@@ -30,21 +30,6 @@ export default async function handler(req, res) {
           message: `${nominatedGame.gameName} has been nominated!`,
         });
       }
-
-      // OLD VERSION  - DELETE unless reverting
-
-      // // locate the relevant game in the DB
-      // const nominatedGame = await gamesModel.findOne({
-      //   gameId: req.body.gameId,
-      // });
-      // // update local copy of the game - change nominated boolean to 'true'
-      // nominatedGame.nominated = true;
-      // // save updated game to DB
-      // await nominatedGame.save();
-      // res.send({ message: `${nominatedGame.gameName} has been Nominated!` });
-
-      // // If game is already nominated: add a message to say contact GM if want to withdraw nomination
-      // //
     } catch (err) {
       res.status(500).send({ message: "Could not nominate game" });
     }

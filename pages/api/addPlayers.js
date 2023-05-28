@@ -13,7 +13,7 @@ export default async function handler(req, res) {
       await connectDB();
       // get players array from req.body
       const players = req.body.players; // check the notation/format of req.body
-      // get YouTube url
+      // get YouTube ID code
       const tutorial = req.body.tutorial;
       // get the relevant game from DB
       const DBGame = await nominatedModel.findOne({ gameId: req.body.gameId });

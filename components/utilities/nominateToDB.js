@@ -1,4 +1,4 @@
-// POST fetch request to /api/nominateGame to add game from normal 'games' collection to 'nominated'
+// POST fetch request to /api/nominateGame to add game from normal 'games' collection to 'nominatedgames'
 // collection. Used in C:OurGamesDisplay
 export default async function nominateToDB(nominatedGame) {
   try {
@@ -10,8 +10,9 @@ export default async function nominateToDB(nominatedGame) {
       body: JSON.stringify({ nominatedGame }),
     });
     const result = await res.json();
-    // *** Change this to a better message/confirmation for users ***
-    console.log(result.message);
+    // alert user that game has been nominated/or is already nominated
+    // In future will change this to display on page, rather than by alert
+    alert(result.message);
   } catch (err) {
     console.error(err);
   }

@@ -1,4 +1,6 @@
-// Handler for GET requests to list games from DB collection 'nominatedgames' (contains games nominated to be played thisWeek) on allocate Games page.
+// Handler for GET requests to list games from DB collection 'nominatedgames'
+// (contains games nominated to be played thisWeek) on allocate Games page.
+// Note similarity to gamesList.js, but accesses different DB collection
 const nominatedModel = require("../../server/models/nominatedSchema");
 // import DB connection
 const connectDB = require("../../db");

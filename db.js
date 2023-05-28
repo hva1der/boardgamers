@@ -1,15 +1,13 @@
-// Set mongoose/MongoDB connection - import where needed.
+//
+// Sets mongoose/MongoDB connection - import where needed.
 
-//
-// PROBLEM?: where does 'connection' go? Greyed out/not being called atm?
-//
 const mongoose = require("mongoose");
-// Deal with strictQuery deprecation warning - IS THIS WHERE THIS SHOULD GO?
+// Deal with strictQuery deprecation warning - ref: https://stackoverflow.com/questions/74711770/how-to-fix-mongoose-deprecation-warning-the-strictquery
 mongoose.set("strictQuery", false);
 
 const connectDB = async () => {
   try {
-    // 'connection' variable no needed unless I plan to use it to check connection status etc.
+    // 'connection' variable not needed unless I use it in future versions to check connection status etc.
     const connection = await mongoose.connect(process.env.MONGO_URI);
   } catch (err) {
     console.error(err);

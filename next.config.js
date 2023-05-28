@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
+// The below code did not become necessary, but left in for guidance in case CORS causes issue in future.
 // Dealing with CORS errors - ref: https://vercel.com/guides/how-to-enable-cors
 // module.exports = {
 //   async headers() {

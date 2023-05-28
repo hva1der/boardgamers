@@ -1,12 +1,11 @@
-//
-// *** NB this has the same name as a backend function /api/addGame.js - change? ***
-
 // imports
 import newGameToDB from "./utilities/newGameToDB";
 
 // COMPONENT AddGame - Parent: NewGame -
-// First: Searches for game from id and submit to DB button. Takes 'newGameDisplay' and 'ourGames' state variables as props.
+// Takes 'newGameDisplay' and 'ourGames' state variables as props from parent (where user has searched BGG API for game info)
+// User confirms if this is the game they want to add to DB
 // Then: onClick function BOTH sends new game to DB AND updates 'ourGames' state in parent C:Nominate to trigger re-render of C:OurGamesDisplay (sibling)
+// backend handled in /pages/api/addGame.js
 export default function AddGame({
   newGameDisplay,
   ourGamesState,
@@ -32,7 +31,7 @@ export default function AddGame({
           }}
         />
         <p>
-          {/*   *** Code to add game to DB (AND to STATE!) goes in button here ***    test starts    */}
+          {/*   onClick adds game to DB and updates state to display/re-render  */}
           To add this game:{" "}
           <button
             onClick={() => {
@@ -43,7 +42,7 @@ export default function AddGame({
                 // then add newGameDisplay which contains new game data from BGG API
                 newGameDisplay,
               ]);
-              // Now fetch POST to /api/addGame to add game to DB
+              // Now fetch POST to /api/addGame with utility function to add game to DB
               newGameToDB(newGameDisplay);
             }}
           >
@@ -55,6 +54,4 @@ export default function AddGame({
   } else {
     return <div>To add a new game: Please search for one by BGG ID above.</div>;
   }
-
-  // Remember to set newGameDisplay to ("")/undefined/falsy if/after submit button clicked - ?
 }

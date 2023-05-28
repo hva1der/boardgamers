@@ -12,6 +12,11 @@
   padding-top: 10px;
 }
 
+/* subheading */
+.homePage h2 {
+  text-align: center;
+}
+
 /* Landing page image */
 .homePage img {
   width: 40vw;

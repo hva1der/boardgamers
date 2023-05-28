@@ -15,11 +15,12 @@ const userSchema = new mongoose.Schema({
     required: true,
     minLength: 3,
   },
+  // isAdmin set to default false. In future will add functionality in app to assign new admins
   isAdmin: {
     type: Boolean,
     default: false,
   },
-  //   Add any further user classes here, with default false
+  // Any further user classes to be added here
 });
 
 // Keep getting error when I try to POST createUser.js: Error [OverwriteModelError]: Cannot overwrite `users` model once compiled.

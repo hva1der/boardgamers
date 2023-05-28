@@ -1,18 +1,16 @@
-// COMPONENT: Gets array of games from DB via getStaticProps
-// on Nominate Page. Displays games as list Nominate page.
-// CHILD component of PARENT Nominate
+// COMPONENT: Gets array of games from DB via getStaticProps on Nominate Page
+// (passed as prop 'ourGames')
+// Displays games as list on Nominate page AND adds nominate button to each game
 
 // Imports
 import nominateToDB from "./utilities/nominateToDB";
 import styles from "@/styles/Nominate.module.css";
 
-// takes 2 props: 'ourGames' (games from DB) and 'newGame' which takes the - changed to only 1 prop(?)
-// *** TO DO: sorts array of games alphabetically and displays as a list ***
 export default function OurGamesDisplay({ ourGames }) {
   const gamesList = ourGames.map((game) => {
     return (
       <li key={game.gameId} className={styles.ourGamesList}>
-        {/* Clicking Nominate btn takes all game info and send it to 'nominated' DB collection */}
+        {/* Clicking Nominate btn takes all game info and sends it to 'nominatedgames' DB collection */}
         <button
           onClick={() => nominateToDB(game)}
           className={styles.nominateButton}
@@ -31,3 +29,6 @@ export default function OurGamesDisplay({ ourGames }) {
     </div>
   );
 }
+
+// NOTE:
+// # Aim to improve by sorting list of games alphabetically

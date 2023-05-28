@@ -1,3 +1,4 @@
+// Import and render Layout Component
 import Layout from "@/components/Layout";
 import "@/styles/globals.css";
 

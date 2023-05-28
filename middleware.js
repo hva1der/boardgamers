@@ -1,6 +1,8 @@
 // middleware to check if users are logged in on paths /membersArea
+// and if they have admin access for /admin path
 import { NextResponse } from "next/server";
-import { NextRequest } from "next/server";
+
+// Jose to deal with JWT, ref: https://www.npmjs.com/package/jose
 const jose = require("jose");
 
 // set secretKey to uint8Array (required by jose)
@@ -40,3 +42,7 @@ export async function middleware(request, context) {
 export const config = {
   matcher: "/membersArea/:path*",
 };
+
+// NOTES:
+// In future will add functionality to provide guidance to users, rather than just redirecting.
+// For now this info/guidance is in the FAQ seciton of the website (which anyone can access)

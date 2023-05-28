@@ -14,7 +14,7 @@ export async function deleteNomination(idToDelete) {
       }
     );
     const result = await res.json();
-    // change to better message/ visible to user
+    // No display delete confirmation to user - self evident when game vanishes from list
     console.log(result.message);
     // reload location to reflect change (and confirm game has been deleted from DB)
     location.reload();

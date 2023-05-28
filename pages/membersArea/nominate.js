@@ -5,9 +5,9 @@ import styles from "@/styles/Nominate.module.css";
 import NewGame from "@/components/NewGame";
 import OurGamesDisplay from "@/components/OurGamesDisplay";
 
-// COMPONENT: Assembles and displays components. Takes ourGames as prop from getStaticProps below
+// Page: Assembles and displays components. Takes ourGames as prop from getStaticProps below
 export default function Nominate({ ourGames }) {
-  // save ourGames as a state variable for React rendering etc.
+  // save ourGames as a state variable for React rendering etc - passes this to child components
   const [ourGamesState, setOurGamesState] = useState(ourGames);
 
   return (
@@ -15,10 +15,12 @@ export default function Nominate({ ourGames }) {
       <h1 className={styles.nominateMainHeader}>
         On this page members can view, add and nominate games
       </h1>
+      {/* User searches for and adds games to DB */}
       <NewGame
         ourGamesState={ourGamesState}
         setOurGamesState={setOurGamesState}
       />
+      {/* Displays games in DB */}
       <OurGamesDisplay ourGames={ourGamesState} />
     </div>
   );

@@ -1,4 +1,4 @@
-// Simple page with instruction on how to contact us and how to get to the venue
+// Simple page with time, map and address to to the venue of our weekly game night
 
 import styles from "@/styles/ContactUs.module.css";
 

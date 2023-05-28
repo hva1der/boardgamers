@@ -1,9 +1,10 @@
 // Page with list of games with info, pics, video and list of allocated players.
-// Also GM/admin access panel on top left
+// This page is the main purpose of the website: to help players prepare for our weekly games-night
 
 import ThisWeekFromDB from "@/components/ThisWeekFromDB";
 
 // COMPONENT: Parent to ThisWeekFromDB
+// takes gamesToDisplay from getStaticProps and passes it as prop to C:ThisWeekFromDB which displays it.
 export default function ThisWeek({ gamesToDisplay }) {
   return (
     <div>

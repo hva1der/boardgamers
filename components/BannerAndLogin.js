@@ -1,14 +1,13 @@
 //
 // COMPONENT: Banner at top of all pages, with login section on left.
 // I had wanted the login section to change to "Username + [log out] button", if
-// a user is already logged in. However, this proved surprisingly difficult.
-//
+// a user is already logged in. However, this proved surprisingly difficult in Next.js
+
+// imports
 import Image from "next/image";
 import styles from "@/styles/Banner.module.css";
 import Link from "next/link";
 import { useState } from "react";
-// cookie functionality
-import cookie from "js-cookie";
 // Utility: fetch JWT
 import fetchJWT from "./utilities/fetchJWT";
 
@@ -38,9 +37,6 @@ export default function BannerAndLogin() {
           onClick={() => {
             // check DB and return JWT token saved as cookie if user exists and password is correct.
             fetchJWT(username, password);
-            // location.reload() causes issues - find an alternative? Want it to make changes when logged in be reflected immediately, such as "Welcome X" on the /home page
-            // SOLVED - moved it to within the fetchJWT function - though screen flicker is an issue when it runs - ideally use state or something instead?
-            // location.reload();
           }}
         >
           Log in

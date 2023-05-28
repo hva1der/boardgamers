@@ -1,9 +1,8 @@
 //
-// Admin/GM section to allocate players to games to be displayed on thisWeek page
+// Admin/GameMaster section to allocate players to games to be displayed on thisWeek page
 // Access to pages in /admin/path is restricted - see: middleware.js
-
-// *** NOTE: State solution is poor and prone to user error. Change if there is time! ***
-// See bottom of page for possible start of alt solution
+// NOTE: an 'admin' test user has been set up to access this page (has propperty isAdmin: true)
+// username: admin, password: administrator
 
 import { useState } from "react";
 
@@ -22,7 +21,7 @@ export default function AllocateGames({ gamesToDisplay }) {
   const [player4, setPlayer4] = useState();
   const [player5, setPlayer5] = useState();
   let players = [player1, player2, player3, player4, player5];
-  // State for (optional) YouTube link/code
+  // State for (optional) YouTube ID code
   const [tutorial, setTutorial] = useState();
 
   const gamesList = gamesToDisplay.map((game) => {
@@ -84,16 +83,9 @@ export const getStaticProps = async () => {
   };
 };
 
-// ALTERNATIVE version for player name fields - generated based on player count for each game
-// let nameFields = [];
-// for (let i = 1; i <= game.maxPlayerCount; i++) {
-
-//   nameFields.push(<input key={i} placeholder={`Player ${i}`} />);
-// }
-// and use with
-// return (
-//   <li key={game.gameId}>
-//     <b>{game.gameName}</b>
-//     <form>{nameFields}</form>
-//   </li>
-// );
+// Notes/known issues:
+// # Chosen state solution is not ideal. Will write to wrong game if user clicks a submit
+// button that doesn't belong to the game where Player names are entered.
+// Also have to rewrite all info when editing names on a game.
+// Did not fix these issues as future version will have an algorithm to allocate players to
+// games. The current code is more of a placeholder.

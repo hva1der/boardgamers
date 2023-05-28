@@ -1,4 +1,5 @@
-// Handler for GET requests to list games from DB collection 'games' (contains all our games) on Nominate Games page.
+// Handler for GET requests to list games from DB collection 'games' (contains all our games)
+// on Nominate Games (pages/membersArea/nominate.js) page.
 const gamesModel = require("../../server/models/gameSchema");
 // import DB connection
 const connectDB = require("../../db");

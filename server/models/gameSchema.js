@@ -1,9 +1,6 @@
-//
-// NB NB: Does this have the same issue as noted in userSchema.js? - YES
-
 const mongoose = require("mongoose");
 
-// Schema for games. No specified Schemas, as info from BGG API should be fixed info already (no user input)
+// Schema for games collection
 const gameSchema = new mongoose.Schema({
   gameId: {
     type: Number,

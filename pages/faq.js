@@ -11,10 +11,13 @@ export default function FAQ() {
         <ul>
           <li>
             <h3>Why can't I access the nominate and sign up pages?</h3>
-            <p>Before you can access member's areas you have to register.</p>
+            <p>
+              Before you can access member's areas you have to register and log
+              in.
+            </p>
           </li>
           <li>
-            <h3>How do I register</h3>
+            <h3>How do I register?</h3>
             <p>
               Clicking the 'register' link under the login button on the top
               right of all pages will take you to the registration page.{" "}

@@ -1,11 +1,11 @@
-// COMPONENT: Displays games to be played this week, with pics, players etc.
-// Used in membersArea/thisWeek
+// COMPONENT: Displays games to be played this week, with thumbnail, list of allocated players
+// and (optional) YouTube tutorial video
+// Used in page membersArea/thisWeek
 
 // import CSS
 import styles from "@/styles/ThisWeek.module.css";
 
-// Note to self: OurGamesDisplay function works fine here
-// Shouldn't need async as getStaticProps has already fetched this with it's async method.
+// Takes 'gamesToDisplay' as prop from
 export default function ThisWeekFromDB({ gamesToDisplay }) {
   // map through games in DB to display info for each game
   const gamesDisplay = gamesToDisplay.map((game) => {

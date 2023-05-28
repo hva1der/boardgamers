@@ -1,8 +1,12 @@
-// ***API*** /api/login path: handles POST login requests - returns JWT token
+//
+// /api/login path: handles POST login requests - returns JWT token
+// used in utility fetchJWT in C:BannerAndLogin.
+
 const usersModel = require("../../server/models/userSchema");
 const jwt = require("jsonwebtoken");
-// import and use Jose - NB wasn't required so have not implemented - delete import unless this changes
-const jose = require("jose");
+// import and use Jose - NB wasn't required - but may implement later to reflect use of jose in other parts of app.
+// const jose = require("jose");
+// ref: https://www.npmjs.com/package/jose
 
 // import DB connection
 const connectDB = require("../../db");
@@ -24,14 +28,14 @@ export default async function handler(req, res) {
       if (userInfo) {
         // Check if password is correct
         if (req.body.password === userInfo.password) {
-          // Convert the signing to Jose? Seems to work as intended without
+          // Convert the signing to use Jose? Seems to work as intended without - may implement later.
           let jwtToken = jwt.sign(
             {
               username: userInfo.username,
               // Save admin details - NOTE: Add other priveliges (host/GM) here if wanted
               isAdmin: userInfo.isAdmin,
             },
-            secretKey // *** this is the key ***
+            secretKey
           );
           // If password is correct: respond with message and token
           res.send({ message: "You have logged in", token: jwtToken });

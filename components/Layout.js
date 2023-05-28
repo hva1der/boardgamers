@@ -1,12 +1,10 @@
 import Navbar from "./Navbar";
-import Image from "next/image";
 import BannerAndLogin from "./BannerAndLogin";
 
-// Layout component to reliably display the navbar and header image on all pages
+// Layout component to reliably display the navbar, header image, and login functionality on all pages
 const Layout = ({ children }) => {
   return (
     <>
-      {/* Banner and Login component */}
       <BannerAndLogin />
       <Navbar />
       <div> {children}</div>

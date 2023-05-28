@@ -6,8 +6,10 @@ import styles from "@/styles/Nominate.module.css";
 import fetchBGGData from "@/components/utilities/fetchBGGData";
 
 // COMPONENT: 'NewGame' - Parent: 'Nominate' - Siblings: 'OurGamesDisplay' - Children: 'AddGame'
-// Searches BGG API for games inputted by user, then passes this to child C:AddGame to be added to DB (and state for displaying)
-// takes S:setOurGamesState as prop so it can add a new game to this and pass back up to C:Nominate for re-rendering of C:OurGamesDisplay
+// Used on page: nominateGames
+// Searches BGG API for games (using utility: fetchBGGData) inputted by user,
+// then passes this to child C:AddGame for user to add to DB (and state for displaying)
+// takes setOurGamesState as prop so it can add a new game to this and pass back up to C:Nominate for re-rendering of C:OurGamesDisplay
 export default function NewGame({ ourGamesState, setOurGamesState }) {
   // State for input field
   const [newGameInput, setNewGameInput] = useState("");
@@ -27,6 +29,7 @@ export default function NewGame({ ourGamesState, setOurGamesState }) {
         Check ID
       </button>
       <div>
+        {/* Pass data to C:AddGame */}
         <AddGame
           newGameDisplay={newGameDisplay}
           ourGamesState={ourGamesState}

@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       const deletedGame = await nominatedModel.deleteOne({
         gameId: req.query.gameId,
       });
-      // check if game was deleted and send confirmation
+      // check if a game was deleted and send confirmation
       if (deletedGame.deletedCount > 0) {
         res.status(200).send({ message: "game deleted" });
       } else {

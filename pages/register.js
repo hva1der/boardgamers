@@ -1,4 +1,4 @@
-// page for new user to register
+// Page for new user to register
 // imports
 import { useState } from "react";
 import styles from "@/styles/Register.module.css";
@@ -19,6 +19,7 @@ export default function register() {
         placeholder="password"
         onChange={(e) => setNewPassword(e.target.value)}
       ></input>
+      {/* onClick function (specified below) to register new user */}
       <button onClick={() => createUser(newUsername, newPassword)}>
         Register
       </button>
@@ -26,7 +27,7 @@ export default function register() {
   );
 }
 
-// POST fetch request with new user details to /api/createUser (handled by createUser.js)
+// POST fetch request with new user details to /api/createUser handler
 async function createUser(username, password) {
   try {
     const res = await fetch("http://localhost:3000/api/createUser", {

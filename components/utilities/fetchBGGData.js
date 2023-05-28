@@ -1,7 +1,7 @@
 //
-// *** NB NOTE NB: This shares name with COMPONENT FetchBGGData - change one of them?? ***
-
-// The API uses XML rather than JSON, so I had to take some extra steps - *** NB: Add to README to install xml2js? ***
+// Used in Component: NewGame.js
+//
+// The API uses XML rather than JSON, so I had to take some extra steps
 // See bottom of page for further explanation.
 import { parseStringPromise } from "xml2js"; // ref: https://www.npmjs.com/package/xml2js
 
@@ -11,9 +11,9 @@ export default async function fetchBGGData(gameId, setNewGameDisplay) {
     const res = await fetch(
       `https://www.boardgamegeek.com/xmlapi2/thing?id=${gameId}`
     );
-    // convert response to string so it can be parsed - xmlStr end up looking like the result I get when going to "https://www.boardgamegeek.com/xmlapi2/thing?id=13" in the browser.
+    // convert response to string so it can be parsed - 'xmlStr' ends up looking like the result I get when going to ex: "https://www.boardgamegeek.com/xmlapi2/thing?id=13" in the browser.
     const xmlStr = await res.text();
-    // parse to JS object so I can access properties (with .dot notation etc.)
+    // parse to JS object so I can access properties (with .dot notation etc.) - I asked a friend to explain this concept to me (see below)
     const xmlDoc = await parseStringPromise(xmlStr);
     // assign properties to be stored in DB: id, name, player count, playtime and thumbnail URL
     let newGame = {};
@@ -34,7 +34,7 @@ export default async function fetchBGGData(gameId, setNewGameDisplay) {
 }
 
 // parseStringPromise explained by Lars:
-
+//
 // ParseStringPromise is a method provided by the xml2js library that allows you to convert an
 // XML string to a JavaScript object, just like the JSON.parse method converts a JSON string to a JavaScript object.
 
