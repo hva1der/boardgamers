@@ -16,7 +16,10 @@ export default function Home({ token }) {
       {/* Main content */}
 
       <div className={styles.homePage}>
-        <h1>Welcome to Glasgow Southside Board Gamers!</h1>
+        {/* data-testid added to identify element for testing - see root/tests/index.test.js */}
+        <h1 data-testid="heading">
+          Welcome to Glasgow Southside Board Gamers!
+        </h1>
         {/* Random boardgame related image - to be changed to image from group/venue */}
         <img src="/bloodRage.jpg" alt="landing-page image"></img>
       </div>
