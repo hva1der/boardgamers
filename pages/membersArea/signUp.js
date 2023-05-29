@@ -8,6 +8,10 @@ import Link from "next/link";
 import styles from "@/styles/SignUp.module.css";
 
 export default function SignUp({ token }) {
+  // get url for link from .env.local
+  const allocateLink =
+    process.env.BACKEND_URL + "/membersArea/admin/allocateGames";
+  console.log(allocateLink);
   return (
     <div className={styles.signUpPage}>
       <h2>In the future this is where you will sign up for games</h2>
@@ -16,9 +20,7 @@ export default function SignUp({ token }) {
         <h3>
           In the meantime, GMs/Admins can access the allocation page below
         </h3>
-        <Link href="http://localhost:3000/membersArea/admin/allocateGames">
-          Allocate Games
-        </Link>
+        <Link href={allocateLink}>Allocate Games</Link>
       </div>
     </div>
   );

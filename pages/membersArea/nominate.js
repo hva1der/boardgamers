@@ -30,7 +30,7 @@ export default function Nominate({ ourGames }) {
 // pass as prop to Nominate, which in turn passes it to OurGamesDisplay
 // Only used on initial page load - new games added to state to re-render displayed list
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/gamesList");
+  const res = await fetch(process.env.BACKEND_URL + "/api/gamesList");
   const data = await res.json();
   const ourGames = data.allGames;
 
