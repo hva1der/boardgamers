@@ -17,7 +17,7 @@ export default function ThisWeek({ gamesToDisplay }) {
 
 // getStaticProps - fetches games from DB
 // pass as prop to ThisWeekFromDB
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch(process.env.BACKEND_URL + "/api/nominatedList");
   const data = await res.json();
   const gamesToDisplay = data.allGames;

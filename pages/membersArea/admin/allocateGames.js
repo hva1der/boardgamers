@@ -73,7 +73,7 @@ export default function AllocateGames({ gamesToDisplay }) {
 }
 
 // getStaticProps - fetches games from DB collection 'nominatedgames'
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch(process.env.BACKEND_URL + "/api/nominatedList");
   const data = await res.json();
   const gamesToDisplay = data.allGames;
