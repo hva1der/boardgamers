@@ -26,7 +26,7 @@ export default function Nominate({ ourGames }) {
   );
 }
 
-// Get static props - fetch list of games array from DB - comes as an array with all game info.
+// Get serverSide props - fetch list of games array from DB - comes as an array with all game info.
 // pass as prop to Nominate, which in turn passes it to OurGamesDisplay
 // Only used on initial page load - new games added to state to re-render displayed list
 export const getServerSideProps = async () => {
