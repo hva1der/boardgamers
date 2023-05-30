@@ -12,7 +12,7 @@ import { deleteNomination } from "@/components/utilities/deleteNomination";
 
 // Lists all games with sublists with inputfields for names
 // takes some UTILITY functions to GET and PUT game info from/to DB
-export default function AllocateGames({ gamesToDisplay }) {
+export default function AllocateGames({ gamesToDisplay, BACKEND_URL }) {
   // STATE for 5 players - known (potential) issue: if user marks players from different games before clicking submit
   // Known issue: Need to input all names when updating players, as empty states will still be saved to DB and delete existing content
   const [player1, setPlayer1] = useState();
@@ -55,11 +55,22 @@ export default function AllocateGames({ gamesToDisplay }) {
         ></input>
 
         {/* Submit button */}
-        <button onClick={() => allocatePlayers(game.gameId, players, tutorial)}>
+        <button
+          onClick={() =>
+            allocatePlayers(game.gameId, players, tutorial, BACKEND_URL)
+          }
+        >
           Submit
         </button>
         {/* DELETE button - for removing nominated games from DB */}
-        <button onClick={() => deleteNomination(game.gameId)}>Delete</button>
+        <button
+          onClick={() => {
+            deleteNomination(game.gameId, BACKEND_URL);
+            console.log(BACKEND_URL);
+          }}
+        >
+          Delete
+        </button>
       </li>
     );
   });
@@ -72,14 +83,16 @@ export default function AllocateGames({ gamesToDisplay }) {
   );
 }
 
-// getStaticProps - fetches games from DB collection 'nominatedgames'
+// getServerSideProps - fetches games from DB collection 'nominatedgames'.
+// also gets BACKEND_URL from process.env to pass to frontend code that uses this
 export const getServerSideProps = async () => {
   const res = await fetch(process.env.BACKEND_URL + "/api/nominatedList");
   const data = await res.json();
   const gamesToDisplay = data.allGames;
+  const BACKEND_URL = process.env.BACKEND_URL;
 
   return {
-    props: { gamesToDisplay },
+    props: { gamesToDisplay, BACKEND_URL },
   };
 };
 

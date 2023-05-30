@@ -2,10 +2,16 @@
 // nominated games DB collection.
 // Used in /pages/membersArea/admin/allocateGames - runs onClick of Submit button
 
-// takes as props: the gameId, an array of <= 5 players, and an (optional) YouTube ID code
-export default async function allocatePlayers(gameId, players, tutorial) {
+// takes as props: the gameId, an array of <= 5 players, and an (optional) YouTube ID code. And the BACKEND_URL from process.env
+// to access DB fetch
+export default async function allocatePlayers(
+  gameId,
+  players,
+  tutorial,
+  BACKEND_URL
+) {
   try {
-    const res = await fetch("http://localhost:3000/api/addPlayers", {
+    const res = await fetch(`${BACKEND_URL}/api/addPlayers`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

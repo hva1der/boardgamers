@@ -2,10 +2,12 @@
 // for removing surplus games, deleting games added in error,
 // and for clearing the DB for next week's nominations - in future will add DELETE ALL button
 
-export async function deleteNomination(idToDelete) {
+// takes the ID of the game to delete as prop. also the BACKEND_URL from process.env to acces fetch to DB
+export async function deleteNomination(idToDelete, BACKEND_URL) {
+  console.log(BACKEND_URL);
   try {
     const res = await fetch(
-      `http://localhost:3000/api/deleteGame/?gameId=${idToDelete}`,
+      `${BACKEND_URL}/api/deleteGame/?gameId=${idToDelete}`,
       {
         method: "DELETE",
         headers: {

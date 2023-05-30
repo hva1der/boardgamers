@@ -20,7 +20,9 @@ export default function SignUp({ token }) {
         <h3>
           In the meantime, GMs/Admins can access the allocation page below
         </h3>
-        <Link href="SOMETHING">Allocate Games</Link>
+        <Link href="http://localhost:3000/membersArea/admin/allocateGames">
+          Allocate Games
+        </Link>
       </div>
     </div>
   );
