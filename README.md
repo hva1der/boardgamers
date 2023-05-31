@@ -1,16 +1,17 @@
 # Table of Contents
 
 - [Introduction](#introduction)
-- [Instructions](#instructions)
+- [Installation Instructions](#installation-instructions)
 - [How to use the app](#how-to-use-the-app)
 - [Admin Access](#admin-access)
 - [Security measures](#security-measures)
 - [Third-party APIs](#third-party-apis)
 - [Deployment](#deployment)
 - [Known Issues](#known-issues)
+- [Credits](#credits)
 - [Original Plan](#original-plan)
-- [System architecture](#system-architecture)
-- [System requirements specification](#system-requirements-specification)
+  - [System architecture](#system-architecture)
+  - [System requirements specification](#system-requirements-specification)
   - [who will use your application](#who-will-use-your-application)
   - [how will they benefit from using it](#how-will-they-benefit-from-using-it)
   - [user stories](#user-stories)
@@ -37,7 +38,7 @@ In the future, I aim to make sorting of players to games automatic, but as this 
 
 The app takes advantage of the Board Game Geek API, which contains information on thousands of board games.
 
-# Instructions
+# Installation Instructions
 
 1. Ensure you have Node.js and NPM (node package manager) installed.
 2. Clone the repo from GitHub
@@ -108,6 +109,14 @@ As Heroku remains paid-only and a suitable alternative has not been provided, I 
 - Missing functionality to give users admin rights.
 
 - While the app works in its current state, I am aware the design of the fetch functionality for interacting with the frontend is unnecessarily complicated and doesn’t take advantage of the built in functionality of Next.js. I am working on an improved version.
+
+# Credits
+
+- [Documentation and guidance from Next.js](https://nextjs.org/docs)
+- [The BGG API](https://boardgamegeek.com/wiki/page/BGG_XML_API2)
+- [How to use the BGG API by Taylor Liss](http://www.tayloraliss.com/bggapi/)
+- [Leigh Halliday YouTube tutorial on cookies](https://www.youtube.com/watch?v=w8n7Soz7khw)
+- [Jwt.io guidance on JWT tokens](https://jwt.io/)
 
 ---
 
