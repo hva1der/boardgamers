@@ -1,3 +1,24 @@
+# Table of Contents
+
+- [Introduction](#introduction)
+- [Instructions](#instructions)
+- [How to use the app](#how-to-use-the-app)
+- [Admin Access](#admin-access)
+- [Security measures](#security-measures)
+- [Third-party APIs](#third-party-apis)
+- [Deployment](#deployment)
+- [Known Issues](#known-issues)
+- [Original Plan](#original-plan)
+- [System architecture](#system-architecture)
+- [System requirements specification](#system-requirements-specification)
+  - [who will use your application](#who-will-use-your-application)
+  - [how will they benefit from using it](#how-will-they-benefit-from-using-it)
+  - [user stories](#user-stories)
+  - [Other software that does something similar](#other-software-that-does-something-similar)
+  - [Functional and non-functional requirements](#functional-and-non-functional-requirements)
+    - [Functional requirements](#functional-requirements)
+    - [Non-functional requirements](#non-functional-requirements)
+
 # Introduction
 
 The purpose of this app is to serve as a website for a boardgaming group. We meet every Monday at 7pm at a pub to play board games. The group consists of around 35 players each week. At the start of the previous week, some members will elect to host games from their collection.
@@ -51,7 +72,7 @@ The app takes advantage of the Board Game Geek API, which contains information o
   - To register, enter a username and password. Passwords have to be at least 6 characters and can't be the same as the username.
   - Once a user has registered, they can log in using the login field.
 - Logged-in users can now access the 'This Week', 'Sign Up', and 'Nominate' pages.
-  - Nominate: Allows users to search for games in the BGG database (see Third Party APIs below). The intention is that they will find games they own and click the button to add them to a database of games owned by the group. They search for games by entering the game's BGG ID code. This is found in the BGG URL of the game, for example, for the game Scythe: https://boardgamegeek.com/boardgame/169786/scythe . This ensures that the user can confirm the correct game is entered into the database (as there are multiple versions of games on the BGG API). The app displays a confirmation info before the user confirms to add the game.
+  - Nominate: Allows users to search for games in the BGG database (see Third Party APIs below). The intention is that they will find games they own and click the button to add them to a database of games owned by the group. They search for games by entering the game's numerical BGG ID code. This is found in the BGG URL of the game, for example for the game Scythe: https://boardgamegeek.com/boardgame/169786/scythe . This ensures that the user can confirm the correct game is entered into the database (as there are multiple versions of games on the BGG API). The app displays a confirmation info before the user confirms to add the game.
   - Users can then nominate games from the database to be played at board game meetups.
   - Sign Up: In the future, users will be able to sign up to play nominated games here. For now, it provides functionality for admins to allocate players to games (SEE 'ADMIN ACCESS' BELOW).
   - This Week: Here users can see what games are scheduled to be played at the next meeting, which players have been allocated to what games, and (if provided) can see embedded YouTube video tutorials for how to play the games. Only games that have had players allocated will be displayed.
@@ -74,6 +95,7 @@ The app takes advantage of the Board Game Geek API, which contains information o
 - The API provides detailed board game information for thousands of games, including pictures of games, popularity ratings, estimated playtimes, and player counts.
 - It is utilized in this app for users to fetch information about their games before adding them to the MongoDB database.
 - In order to access data in the XML format, I have utilized the xml2js library.
+- More of this information will be utilised in future versions of the app.
 
 # Deployment
 
@@ -89,7 +111,7 @@ As Heroku remains paid-only and a suitable alternative has not been provided, I 
 
 ---
 
-Original Plan
+# Original Plan
 
 ---
 
