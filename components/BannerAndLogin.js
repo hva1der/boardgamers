@@ -8,6 +8,8 @@ import Image from "next/image";
 import styles from "@/styles/Banner.module.css";
 import Link from "next/link";
 import { useState } from "react";
+// cookie functionality
+import cookie from "js-cookie";
 // Utility: fetch JWT
 import fetchJWT from "./utilities/fetchJWT";
 
@@ -40,6 +42,15 @@ export default function BannerAndLogin() {
           }}
         >
           Log in
+        </button>
+        {/* Log out functionality: deletes token cookie and reloads page */}
+        <button
+          onClick={() => {
+            cookie.remove("token");
+            location.reload();
+          }}
+        >
+          Log out
         </button>
         {/* Link to registration page */}
         <Link href="/register">Register</Link>

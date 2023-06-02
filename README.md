@@ -72,6 +72,7 @@ The app takes advantage of the Board Game Geek API, which contains information o
 - The login field in the top right is visible on all pages. Existing users can log in here. Alternatively, new users can click the 'register' link, which will take them to the registration page:
   - To register, enter a username and password. Passwords have to be at least 6 characters and can't be the same as the username.
   - Once a user has registered, they can log in using the login field.
+  - Clicking the 'log out' button will delete the cookie with the jwt-token used to authenticate their access.
 - Logged-in users can now access the 'This Week', 'Sign Up', and 'Nominate' pages.
   - Nominate: Allows users to search for games in the BGG database (see Third Party APIs below). The intention is that they will find games they own and click the button to add them to a database of games owned by the group. They search for games by entering the game's numerical BGG ID code. This is found in the BGG URL of the game, for example for the game Scythe: https://boardgamegeek.com/boardgame/169786/scythe . This ensures that the user can confirm the correct game is entered into the database (as there are multiple versions of games on the BGG API). The app displays a confirmation info before the user confirms to add the game.
   - Users can then nominate games from the database to be played at board game meetups.
@@ -82,6 +83,7 @@ The app takes advantage of the Board Game Geek API, which contains information o
 
 - Admin access is enabled by changing the 'isAdmin' property of a user to 'true' in the MongoDB 'users' collection.
 - Once logged in as an admin, they can access the games allocation page via a link on the Sign Up page. Here the admin can enter player names to add them to games. They can also add YouTube video ID codes to provide tutorials for games.
+- Admins can update players by entering new names for a game and clicking 'submit' again.
   - Admins can also delete nominations in the event games have been entered in error.
 
 # Security measures
